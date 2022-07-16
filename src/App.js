@@ -17,16 +17,20 @@ const DUMMY_MEMBERS = [{
 }]
 
 function App() {
-	const [memberInfo, setMemberInfo] = useState(DUMMY_MEMBERS)
-	const addMemberHandler = (memberInfo) => {
-		setMemberInfo((prevMembers) => {
-			return [memberInfo, ...prevMembers]
+	const [memberInfo, setMemberList] = useState(DUMMY_MEMBERS)
+	const addMemberHandler = (memberName, memberAge) => {
+		setMemberList((prevMemberList) => {
+			return [
+				...prevMemberList,
+				{name: memberName, age: memberAge, id: Math.random().toString()},
+			]
 		})
 	}
+
 	return (
 			<div>
 				<AddMember onAddMember={addMemberHandler}/>
-				<MemberList members={memberInfo}/>
+				{/*<MemberList members={memberInfo}/>*/}
 			</div>
 	);
 }

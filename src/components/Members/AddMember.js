@@ -15,7 +15,7 @@ const AddMember = (props) => {
 	}
 	const addMemberHandler =(event) => {
 		event.preventDefault(); // 새로 고침됐을때 기본 값 초기화 방지
-
+	props.onAddMember(enteredName, enteredAge);
 		setEnteredName('');
 		setEnteredAge('');
 	}
