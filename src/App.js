@@ -17,7 +17,7 @@ const DUMMY_MEMBERS = [{
 }]
 
 function App() {
-	const [memberInfo, setMemberList] = useState(DUMMY_MEMBERS)
+	const [memberList, setMemberList] = useState([])
 	const addMemberHandler = (memberName, memberAge) => {
 		setMemberList((prevMemberList) => {
 			return [
@@ -30,7 +30,7 @@ function App() {
 	return (
 			<div>
 				<AddMember onAddMember={addMemberHandler}/>
-				{/*<MemberList members={memberInfo}/>*/}
+				<MemberList members={memberList}/>
 			</div>
 	);
 }
