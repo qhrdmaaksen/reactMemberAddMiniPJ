@@ -7,10 +7,18 @@ const AddMember = (props) => {
 	const [enteredMemberName, setEnteredMemberName] = useState('')
 	const [enteredMemberAge, setEnteredMemberAge] = useState('')
 
-	const addMemberHandler =(event) => {
+	const addMemberHandler = (event) => {
 		event.preventDefault(); // 새로 고침됐을때 기본 값 초기화 방지
+		if (enteredMemberName.trim().length === 0) {
+			return console.log('올바른 이름을 입력해주세요');
+		} else if (enteredMemberAge.trim().length === 0) {
+			return console.log('올바른 나이를 입력해주세요');
+		}
+		if (+enteredMemberAge < 1) {
+			return console.log('올바른 나이를 입력해주세요');
+		}
 		console.log('회원 정보 로그 :: ' + enteredMemberName, enteredMemberAge);
-	props.onAddMember(enteredMemberName, enteredMemberAge);
+		props.onAddMember(enteredMemberName, enteredMemberAge);
 		setEnteredMemberName('');
 		setEnteredMemberAge('');
 	}
@@ -23,11 +31,11 @@ const AddMember = (props) => {
 	return (
 			<Card className={classes.input}>
 				<form action="" onSubmit={addMemberHandler}>
-							<label htmlFor="memberName">회원 성함</label>
-							<input id="memberName" type="text" value={enteredMemberName} onChange={memberNameChangeHandler}/>
-							<label htmlFor="memberAge">나이</label>
-							<input id="memberAge" type="text" value={enteredMemberAge} onChange={memberAgeChangeHandler}/>
-						<Button type="submit">회원 추가</Button>
+					<label htmlFor="memberName">회원 성함</label>
+					<input id="memberName" type="text" value={enteredMemberName} onChange={memberNameChangeHandler}/>
+					<label htmlFor="memberAge">나이</label>
+					<input id="memberAge" type="text" value={enteredMemberAge} onChange={memberAgeChangeHandler}/>
+					<Button type="submit">회원 추가</Button>
 				</form>
 			</Card>
 	)
