@@ -17,7 +17,7 @@ const DUMMY_MEMBERS = [{
 }]
 
 function App() {
-	const [memberList, setMemberList] = useState([])
+	const [memberList, setMemberList] = useState([DUMMY_MEMBERS])
 	const addMemberHandler = (memberName, memberAge) => {
 		setMemberList((prevMemberList) => {
 			return [
