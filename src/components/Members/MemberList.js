@@ -16,7 +16,7 @@ const MemberList = (props) => {
 				<ul>
 					{
 						props.members.map((member) =>
-								(<li>
+								(<li key={member.id}>
 									{member.name} {member.age}
 								</li>))
 					}

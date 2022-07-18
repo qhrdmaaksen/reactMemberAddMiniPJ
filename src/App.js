@@ -2,27 +2,13 @@ import React, {useState} from 'react';
 import AddMember from './components/Members/AddMember'
 import MemberList from "./components/Members/MemberList";
 
-const DUMMY_MEMBERS = [{
-	id: 'member01',
-	name: 'vitamin01',
-	age: 1,
-}, {
-	id: 'member02',
-	name: 'vitamin02',
-	age: 2,
-}, {
-	id: 'member03',
-	name: 'vitamin03',
-	age: 3,
-}]
-
 function App() {
-	const [memberList, setMemberList] = useState([DUMMY_MEMBERS])
+	const [memberList, setMemberList] = useState([])
 	const addMemberHandler = (memberName, memberAge) => {
 		setMemberList((prevMemberList) => {
 			return [
-				...prevMemberList,
-				{name: memberName, age: memberAge, id: Math.random().toString()},
+				...prevMemberList, // 요소 복사, 배열의 모든 요소들을 불러오는 스프레드 연산자 회원 정보들 출력
+				{name: memberName, age: memberAge, id: Math.random().toString()}, //새로운 회원 정보 출력
 			]
 		})
 	}
