@@ -45,12 +45,11 @@ const AddMember = (props) => {
 		setEnteredMemberAge(event.target.value);
 	}
 	return (
-			<div>
+			<React.Fragment>
 					{errorModalPopup && <ErrorModal onClickCloseBTN={onClickCloseBTN}
 											 title={errorModalPopup.title}
 											 message={errorModalPopup.message}
 					/>}
-				<div>
 					<Card className={classes.input}>
 						<form action="" onSubmit={addMemberHandler}>
 							<label htmlFor="memberName">회원 성함</label>
@@ -60,8 +59,7 @@ const AddMember = (props) => {
 							<Button type="submit">회원 추가</Button>
 						</form>
 					</Card>
-				</div>
-			</div>
+			</React.Fragment>
 	)
 }
 export default AddMember;

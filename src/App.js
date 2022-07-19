@@ -14,10 +14,10 @@ function App() {
 	}
 
 	return (
-			<div>
+			<React.Fragment>
 				<AddMember onAddMember={addMemberHandler}/>
 				<MemberList members={memberList}/>
-			</div>
+			</React.Fragment>
 	);
 }
 
