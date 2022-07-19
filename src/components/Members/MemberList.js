@@ -4,13 +4,6 @@ import classes from './MemberList.module.css'
 import Card from "../UI/Card";
 
 const MemberList = (props) => {
-	const [enteredMemberData, setEnteredMemberData] = useState('')
-	const saveMemberDataHandler = (enteredMemberData) => {
-		const memberData = {
-			...enteredMemberData,
-			id: Math.random().toString()
-		}
-	}
 	return (
 			<Card className={classes.users}>
 				<ul>
